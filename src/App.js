@@ -14,7 +14,7 @@ import GreenBackgroundVideo from './assets/GreenBackground.mp4'; // Update the p
 
 //You must add your own API key here from Clarifai.
 const app = new Clarifai.App({
- apiKey: 'YOUR API KEY HERE'
+ apiKey: 'b0a2d5e2a9e341429dc2094016884d5c'
 });
 
 // No Longer need this. Updated to particles-bg
@@ -37,7 +37,7 @@ class App extends Component {
       input: '',
       imageUrl: '',
       box: {},
-      route: 'signin',
+      route: 'home',
       isSignedIn: false,
       user: {
         id: '',
@@ -127,6 +127,7 @@ class App extends Component {
         <source src={GreenBackgroundVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+      <div className="overlay"></div>
         <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
         { route === 'home'
           ? <div>

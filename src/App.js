@@ -12,32 +12,11 @@ import Rank from './components/Rank/Rank';
 import './App.css';
 import GreenBackgroundVideo from './assets/GreenBackground.mp4'; // Update the path accordingly
 
-//You must add your own API key here from Clarifai.
-const app = new Clarifai.App({
- apiKey: 'b0a2d5e2a9e341429dc2094016884d5c'
-});
-
-// No Longer need this. Updated to particles-bg
-// const particlesOptions = {
-//   particles: {
-//     number: {
-//       value: 30,
-//       density: {
-//         enable: true,
-//         value_area: 800
-//       }
-//     }
-//   }
-// }
-
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
+const initialState = {
       input: '',
       imageUrl: '',
       box: {},
-      route: 'home',
+      route: 'register',
       isSignedIn: false,
       user: {
         id: '',
@@ -47,6 +26,13 @@ class App extends Component {
         joined: ''
       }
     }
+
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = initialState;
+      
   }
 
   loadUser = (data) => {
@@ -82,13 +68,14 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-   
-    // HEADS UP! Sometimes the Clarifai Models can be down or not working as they are constantly getting updated.
-    // A good way to check if the model you are using is up, is to check them on the clarifai website. For example,
-    // for the Face Detect Mode: https://www.clarifai.com/models/face-detection
-    // If that isn't working, then that means you will have to wait until their servers are back up. 
-
-    app.models.predict('face-detection', this.state.input)
+    fetch('http://localhost:3000/imageurl', {
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              input: this.state.input
+            })
+          })
+      .then(response => response.json())
       .then(response => {
         console.log('hi', response)
         if (response) {
@@ -103,6 +90,7 @@ class App extends Component {
             .then(count => {
               this.setState(Object.assign(this.state.user, { entries: count}))
             })
+            .catch(console.log)
 
         }
         this.displayFaceBox(this.calculateFaceLocation(response))
@@ -112,7 +100,7 @@ class App extends Component {
 
   onRouteChange = (route) => {
     if (route === 'signout') {
-      this.setState({isSignedIn: false})
+      this.setState(initialState)
     } else if (route === 'home') {
       this.setState({isSignedIn: true})
     }

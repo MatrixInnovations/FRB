@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 // import Particles from 'react-particles-js';
 //import ParticlesBg from 'particles-bg'
-import Clarifai from 'clarifai';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Navigation from './components/Navigation/Navigation';
 import Signin from './components/Signin/Signin';
@@ -11,6 +10,8 @@ import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
 import './App.css';
 import GreenBackgroundVideo from './assets/GreenBackground.mp4'; // Update the path accordingly
+import 'tachyons';
+
 
 const initialState = {
       input: '',

@@ -10,8 +10,6 @@ import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
 import './App.css';
 import GreenBackgroundVideo from './assets/GreenBackground.mp4'; // Update the path accordingly
-import 'tachyons';
-
 
 const initialState = {
       input: '',

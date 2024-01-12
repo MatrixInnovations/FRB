@@ -67,7 +67,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-    fetch('https://mindgamesbe.onrender.com', {
+    fetch('dpg-cmfe53mn7f5s73c4ej70-a', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -78,7 +78,7 @@ class App extends Component {
       .then(response => {
         console.log('hi', response)
         if (response) {
-          fetch('https://mindgamesbe.onrender.com', {
+          fetch('dpg-cmfe53mn7f5s73c4ej70-a', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

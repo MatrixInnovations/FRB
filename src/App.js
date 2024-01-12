@@ -67,7 +67,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-    fetch('postgres://mindgamesdb_qvf3_user:brdXDP9eAIVIUcmWROGuOcSv7CaDzx8w@dpg-cmfe53mn7f5s73c4ej70-a/mindgamesdb_qvf3', {
+    fetch('https://mindgamesbe.onrender.com', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -78,7 +78,7 @@ class App extends Component {
       .then(response => {
         console.log('hi', response)
         if (response) {
-          fetch('postgres://mindgamesdb_qvf3_user:brdXDP9eAIVIUcmWROGuOcSv7CaDzx8w@dpg-cmfe53mn7f5s73c4ej70-a/mindgamesdb_qvf3', {
+          fetch('https://mindgamesbe.onrender.com', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

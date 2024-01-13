@@ -9,7 +9,7 @@ import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
 import './App.css';
-import GreenBackgroundVideo from './assets/GreenBackground.mp4'; 
+import GreenBackgroundVideo from './assets/GreenBackground.mp4';
 
 const initialState = {
       input: '',
@@ -67,7 +67,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-    fetch('https://mindgamesbe.onrender.com/imageurl', {
+    fetch('postgres://mindgamesdb_qvf3_user:brdXDP9eAIVIUcmWROGuOcSv7CaDzx8w@dpg-cmfe53mn7f5s73c4ej70-a/mindgamesdb_qvf3', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -78,7 +78,7 @@ class App extends Component {
       .then(response => {
         console.log('hi', response)
         if (response) {
-          fetch('https://mindgamesbe.onrender.com/image', {
+          fetch('postgres://mindgamesdb_qvf3_user:brdXDP9eAIVIUcmWROGuOcSv7CaDzx8w@dpg-cmfe53mn7f5s73c4ej70-a/mindgamesdb_qvf3', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

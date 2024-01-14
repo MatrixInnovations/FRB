@@ -23,7 +23,7 @@ class Register extends React.Component {
   }
 
   onSubmitSignIn = () => {
-  fetch('https://mindgamesbe.onrender.com/register', {
+  fetch('https://mindgamesbe.onrender.com/Register', {
     method: 'post',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({

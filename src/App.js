@@ -110,7 +110,7 @@ class App extends Component {
     const { isSignedIn, imageUrl, route, box } = this.state;
     return (
       <div className="App">
-        <video id="background-video" loop autoPlay muted playsInline>
+        <video id="background-video" loop autoPlay muted >
         <source src={GreenBackgroundVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
